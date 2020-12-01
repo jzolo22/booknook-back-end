@@ -9,8 +9,12 @@
 
 require 'rest-client'
 require 'json'
+require 'faker'
 
 Book.destroy_all
+User.destroy_all
+Review.destroy_all
+
 
 
 
@@ -18,7 +22,7 @@ def get_books
     google_books = ENV["GOOGLE_API_KEY"]
     index_number = 0
     book_array = []
-    80.times do 
+    1.times do 
         all_books = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=a&orderBy=newest&startIndex=#{index_number}&key=#{google_books}")
         book_hash = JSON.parse(all_books)
         index_number += 1
@@ -46,5 +50,8 @@ end
 
 get_books
 
+User.create(username: "Sean")
+User.create(username: "Julia")
 
+Review.create(comment: Faker::Quotes::Shakespeare.hamlet_quote, recommend: true, rating: 8,  book_id: 1, user_id: 1)
 
