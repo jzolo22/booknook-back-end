@@ -53,5 +53,5 @@ get_books
 User.create(username: "Sean")
 User.create(username: "Julia")
 
-Review.create(comment: Faker::Quotes::Shakespeare.hamlet_quote, recommend: true, rating: 8,  book_id: 1, user_id: 1)
+Review.create(comment: Faker::Quotes::Shakespeare.hamlet_quote, recommend: true, rating: 8,  book_id: Book.first.id, user_id: User.first.id)
 
