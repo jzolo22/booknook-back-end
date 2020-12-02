@@ -1,9 +1,20 @@
 class ReviewsController < ApplicationController
 
+    def index
+        reviews = Review.all
+        render json: reviews
+    end
+
+    def show
+        review = Review.find(params[:id])
+        render json: review
+    end
+
 
     def update
         review = Review.find(params[:id])
         review.update!(comment: params[:comment], recommend: params[:recommend], rating: params[:rating], book_id: params[:book_id], user_id: params[:user_id])
+    end
 
 
     def create 
