@@ -15,4 +15,15 @@ class BooksController < ApplicationController
         render json: shuffled_books
     end
 
+    def create
+        book = Book.create!(book_params)
+        render json: book
+    end
+
+    private
+
+    def book_params
+        params.permit(:title, :author, :genre, :image_url, :year, :description)
+    end
+
 end
