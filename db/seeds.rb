@@ -22,7 +22,7 @@ def get_books
     google_books = ENV["GOOGLE_API_KEY"]
     index_number = 0
     book_array = []
-    10.times do 
+    15.times do 
         all_books = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=a&orderBy=newest&startIndex=#{index_number}&key=#{google_books}")
         book_hash = JSON.parse(all_books)
         index_number += 1
