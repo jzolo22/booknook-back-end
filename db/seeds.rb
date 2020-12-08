@@ -22,7 +22,7 @@ def get_books
     google_books = ENV["GOOGLE_API_KEY"]
     index_number = 0
     book_array = []
-    15.times do 
+    40.times do 
         all_books = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=a&orderBy=newest&startIndex=#{index_number}&key=#{google_books}")
         book_hash = JSON.parse(all_books)
         index_number += 1
@@ -50,8 +50,11 @@ end
 
 get_books
 
-User.create(username: "Sean")
-User.create(username: "Julia")
+User.create(username: "Harry Potter")
+User.create(username: "Hermione Granger")
+User.create(username: "Ron Weasley")
 
-Review.create(comment: Faker::Quotes::Shakespeare.hamlet_quote, recommend: true, rating: 8,  book_id: Book.first.id, user_id: User.first.id)
+50.times do 
+    Review.create(comment: Faker::Quotes::Shakespeare.as_you_like_it_quote, recommend: true, rating: 4,  book_id: Book.all.sample.id, user_id: User.all.sample.id)
+end
 
