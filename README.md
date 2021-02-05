@@ -5,6 +5,8 @@ This is an app designed to demonstrate knowledge of Rails as an API, as well as 
 
 Feel free to get cozy and let the [Book Nook](https://book-nook.netlify.app/) pick out some books for you. (Please be patient - it may need a few refreshes for the server side to warm up and display the books!)
 
+You can also watch a [demo](https://youtu.be/C-R1DyEO9C8) :)
+
 The front end of this project can be found here: https://github.com/jzolo22/booknook-front-end/.
 
 ## Contributors
